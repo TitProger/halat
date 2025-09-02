@@ -34,7 +34,8 @@
             font-family: 'MiSans', sans-serif;
             background-color: #FFFFFF;
             color: #404040;
-            width: 1024px;
+            width: 100%;
+            max-width: 1024px;
             margin: 0 auto;
             overflow-x: hidden;
         }
@@ -964,7 +965,76 @@
              text-transform: uppercase;
              letter-spacing: 0.5px;
          }
-     </style>
+        
+        /* Generic responsive helpers */
+        img, video {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Responsive Layout */
+        @media (max-width: 1024px) {
+            .container { padding: 0 20px; }
+            .profile-container { padding: 0 20px; }
+            .hero { padding: 40px 20px; }
+        }
+        
+        @media (max-width: 768px) {
+            .profile-container { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .profile-info { width: 100%; }
+            .profile-navigation { width: 100%; flex-wrap: wrap; gap: 12px; }
+            .nav-item { flex: 1 1 calc(33.333% - 12px); min-width: 100px; }
+            
+            .hero { flex-direction: column; text-align: center; gap: 24px; }
+            .hero-content, .hero-image { width: 100%; }
+            .hero h1 { font-size: 36px; }
+            .molecule { right: 20px; }
+            
+            .product-grid { flex-direction: column; gap: 20px; }
+            .product-card { width: 100%; }
+            .product-image { height: 200px; }
+            
+            .pricing-grid { flex-wrap: wrap; gap: 16px; }
+            .pricing-card { width: calc(50% - 8px); }
+            
+            .footer-content { flex-direction: column; gap: 20px; align-items: flex-start; }
+            .map-info { flex-direction: column; }
+            
+            .product-gallery { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+            .gallery-item img { height: 200px; }
+            
+            .modal-content { width: 95%; margin: 10% auto; max-height: 85vh; }
+            .modal-header { padding: 20px; }
+            .modal-title { font-size: 22px; }
+            
+            .btn { padding: 12px 28px; font-size: 16px; }
+            .btn-small { padding: 8px 18px; font-size: 13px; }
+            .section-title { font-size: 30px; }
+        }
+        
+        @media (max-width: 480px) {
+            .container { padding: 0 16px; }
+            .profile-container { padding: 0 16px; }
+            .hero { padding: 32px 16px; }
+            .hero h1 { font-size: 30px; }
+            
+            .nav-item { flex: 1 1 calc(50% - 10px); padding: 12px 14px; }
+            .nav-item i { font-size: 22px; }
+            .nav-item span { font-size: 12px; }
+            
+            .product-image { height: 180px; }
+            .section-title { font-size: 26px; }
+            .pricing-card { width: 100%; }
+            
+            .fullscreen-close { width: 44px; height: 44px; font-size: 32px; right: 16px; top: 16px; }
+            .fullscreen-nav { width: 48px; height: 48px; font-size: 20px; }
+            .fullscreen-prev { left: 16px; }
+            .fullscreen-next { right: 16px; }
+            .fullscreen-counter { bottom: 16px; padding: 8px 14px; font-size: 14px; }
+            
+            .btn { padding: 10px 22px; font-size: 15px; }
+        }
+    </style>
 </head>
  <body>
     
@@ -1087,7 +1157,7 @@
                  </div>
                  
                  <div class="pricing-card">
-                     <div class="quantity">от 10 шт.</div>
+                     <div class="quantity">от 15 шт.</div>
                      <div class="price">500 ₽</div>
                  </div>
                  
@@ -1097,7 +1167,7 @@
                  </div>
                  
                  <div class="pricing-card">
-                     <div class="quantity">от 1000 шт.</div>
+                     <div class="quantity">от 500 шт.</div>
                      <div class="price">400 ₽</div>
                  </div>
             </div>
@@ -1110,7 +1180,7 @@
              <h2 class="section-title">КАК НАС НАЙТИ</h2>
              <div class="map-container">
                  <iframe 
-                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2243.1234567890123!2d49.151230!3d55.783261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415ead0f8f5b5b5b%3A0x0!2zNTXCsDQ3JzAwLjAiTiA0OcKwMDknMDQuNCJF!5e0!3m2!1sru!2sru!4v1234567890123"
+                     src="https://www.google.com/maps?q=55.788768,49.148743&z=16&output=embed"
                      width="100%" 
                      height="400" 
                      style="border:0; border-radius: 12px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);" 
@@ -1124,14 +1194,14 @@
                      <i class="ri-map-pin-fill"></i>
                      <div>
                          <h4>Адрес</h4>
-                         <p>г. Казань, ул. Амирхана Еники, 2/53</p>
+                         <p>г. Казань, внутренний двор ул. Чехова 9</p>
                      </div>
                  </div>
                  <div class="map-info-item">
                      <i class="ri-time-fill"></i>
                      <div>
                          <h4>Время работы</h4>
-                         <p>Пн-Пт: 18:00 - 20:00<br>Сб-Вс: 15:00 - 17:00</p>
+                         <p>Пн-Сб: 18:30 - 19:30<br>Вс: по личной договоренности</p>
                      </div>
                  </div>
                  <div class="map-info-item">
@@ -1155,7 +1225,7 @@
                          <div class="footer-contact">
                  <h4>Контакты</h4>
                  <p>Телефон: +7 (917) 869-03-63</p>
-                 <p>Адрес: г. Казань, ул. Амирхана Еники, 2/53</p>
+                 <p>Адрес: г. Казань, ул. Чехова 9</p>
              </div>
             
                          <div class="footer-social">
@@ -1255,7 +1325,7 @@
                  </div>
              </div>
              <div class="modal-footer">
-                 <div class="price-modal">650 ₽</div>
+                 <div class="price-modal">550 ₽</div>
                  <button class="btn-modal" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSddExhkP22MxF5R3E6QEHGB6Wc-L9avpjxKhE2n3cF4Pb_r6w/viewform', '_blank')">ЗАКАЗАТЬ</button>
              </div>
          </div>
@@ -1297,7 +1367,7 @@
                  </div>
              </div>
              <div class="modal-footer">
-                 <div class="price-modal">700 ₽</div>
+                 <div class="price-modal">100 ₽</div>
                  <button class="btn-modal" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSddExhkP22MxF5R3E6QEHGB6Wc-L9avpjxKhE2n3cF4Pb_r6w/viewform', '_blank')">ЗАКАЗАТЬ</button>
              </div>
          </div>
